@@ -1,0 +1,13 @@
+{
+	"name": "SqlServer_SalesLT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Onprem_ADB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
