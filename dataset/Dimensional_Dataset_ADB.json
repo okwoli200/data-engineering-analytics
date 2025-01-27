@@ -1,0 +1,29 @@
+{
+	"name": "Dimensional_Dataset_ADB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_Link",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "@concat(dataset().TableName, '_', formatDateTime(addDays(utcNow(), -1), 'yyyy-MM-dd'), '.snappy.parquet')",
+				"folderPath": {
+					"value": "@concat('live', dataset().TableName)",
+					"type": "Expression"
+				},
+				"fileSystem": "dimension-bronze"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
