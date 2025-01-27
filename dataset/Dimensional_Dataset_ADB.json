@@ -17,7 +17,7 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": "@concat(dataset().TableName, '_', formatDateTime(addDays(utcNow(), -1), 'yyyy-MM-dd'), '.snappy.parquet')",
 				"folderPath": {
-					"value": "@concat('live', dataset().TableName)",
+					"value": "@concat('live', '/', dataset().TableName)",
 					"type": "Expression"
 				},
 				"fileSystem": "dimension-bronze"
